@@ -1,0 +1,31 @@
+<% layout( 'layout' ) -%>
+<div class ="container">
+    <h1><%= title %></h1>
+    <div>
+      <form action="/create" method="post" accept-charset="utf-8">
+        <input type="text" name="content" />
+      </form>
+    </div>
+    <div>
+      <h2>Lister les éléments</h2>
+      <% todos.forEach(function(todo){%>
+        <p><%= todo.content %></p>
+        <p><%= todo.updated_at%></p>
+      <% });%>
+    </div>
+    <div>
+      <h2>Retirer des éléments</h2>
+      <% todos.forEach(function(todo){%>
+        <p>
+        <span>
+          <a href="/edit/<%= todo._id %>" title="Update"><%= todo.content %> </a>
+        </span>
+        <span>
+          <a href="/destroy/<%= todo._id %>" title="Delete this item">Delete</a>
+        </span>
+        </p>
+      <% });%>
+    </div>
+   
+</div>
+  

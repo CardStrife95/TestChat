@@ -1,0 +1,59 @@
+<nav class="navbar navbar-inverse">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">Project</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li clas="active"><a class="nav-item nav-link" href="/">Home<span class="sr-only">(current)</a></li>  
+      <li><a class="nav-item nav-link" href="/news">News</a></li>
+      <li><a class="nav-item nav-link" href="/article">Articles</a></li>
+      <li><a class="nav-item nav-link" data-toggle="modal" data-target="#contactModal" href="#">Contact</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="gluphicon glyphicon-user"></span>S'inscrire</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Connecter</a></li>
+    </ul>
+</nav>
+
+<div class="modal" id="contactModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4>Contact</h4>
+            </div>
+            <div class="modal-body">
+                <p>Pour contacter , il suffit d'envoyer soit par mail soit par SMS</p>
+                <p>Ou bien envoyer un message</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#messageModal">Envoyer un message</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="messageModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4>Envoyer un message</h4>
+            </div>
+            <div class="modal-body">
+                <form action="/message" method="post" accept-charset="utf-8">
+                    <label for="email">Email : </label>
+                    <input type="email" name="email_exp" placeholder="Exemple : xyz@email.com"/>
+                    <label for="motif">Motif : </label>
+                    <input type="text" name="motif" />
+                    <label for="contenu">Contenu </label>
+                    <textarea name="contenu" id="" cols="70" rows="10"></textarea>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-default">Envoyer un message</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<% layout('layout') -%>
+<div class="container">
+    <h1><%= title %></h1>
+    <% news.forEach(function(newsId){%>
+    <% if (newsId._id == current){%>
+    <article>
+        <h1><%= newsId.title %></h1>
+        <h3>Mise en ligne le <%= newsId.update_at %></h3>
+        <br />
+        <p>
+            <%= newsId.content %>
+        </p>
+    </article>
+    
+    <div class="">
+        <form class="" method="post" action="/news/<%= newsId._id %>">
+        <textarea name="comment" id="" cols="100" rows="10"></textarea>
+        <button type="submit" class="btn btn-default">Commenter</button>
+        </form>
+    </div>
+    <br />
+    <hr />
+    <div class="">
+        <h2>Commentaires</h2>
+        <hr />
+        <article>
+            <%= newsId.comments %>
+        </article>
+    </div>
+    <% }%>
+    <% });%>
+</div>
