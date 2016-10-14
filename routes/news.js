@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var News = mongoose.model('News');
-var Message = mongoose.model('Message');
+var Comment = mongoose.model('Comment');
 
 
 
@@ -35,6 +35,8 @@ exports.read = function(req,res){
         .sort('-update_at')
         .exec(function(err,news){
             if(err) throw err;
+            console.log(news);
+            console.log(news.comments);
             res.render('newRead',{
                 title : "News",
                 news : news,
@@ -44,15 +46,15 @@ exports.read = function(req,res){
 };
 
 exports.addComment = function(req,res){
-    var message = new Message({
+    var comment = new Comment({
         pseudo : req.body.pseudo,
         content : req.body.comment
     });
     News
-        .findbyId(req.params.id,function(err,news){
+        .findById(req.params.id,function(err,news){
             if (err) throw err;
-            news.comments.push(message);
-            message.save(function(err, mess){
+            news.comments.push(comment);
+            comment.save(function(err, mess){
                 if(err) throw err;
             });
             news.save(function(err,newss){
@@ -60,4 +62,14 @@ exports.addComment = function(req,res){
             });
         });
     
+}
+
+exports.delete_comment = function(req,res){
+    News.
+        findById(req.params.id,function(err,news){
+            if(err) throw err;
+            news.comments.find({comment_id : req.params.idcomment},function(err,comment){
+                    
+            });
+        });
 }

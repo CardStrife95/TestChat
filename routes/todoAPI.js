@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Todo = mongoose.model('Todo');
 var News = mongoose.model('News');
 var Message = mongoose.model('Message');
+var User = mongoose.model('User');
 
 exports.list = function(req,res,next){
   Todo
@@ -32,4 +33,14 @@ exports.listMessages = function(req,res,next){
             res.json(messages);
         });
          
+};
+
+exports.listUser = function(req,res){
+    User
+    .find()
+        .sort('-updated_at')
+        .exec(function(err,users){
+            if(err) return next(err);
+            res.json(users);
+        });
 };

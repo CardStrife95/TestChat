@@ -2,7 +2,16 @@
 /*
  * GET users listing.
  */
+var mongoose = require('mongoose');
+var User = mongoose.model('User');
 
-exports.list = function(req, res){
-  res.send("respond with a resource");
+
+
+
+exports.getUser = function(req, res){
+  User.findById(req.params.id,function(err,user){
+    if (err) throw err;
+    res.json(user);
+  });
 };
+

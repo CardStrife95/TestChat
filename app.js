@@ -15,6 +15,8 @@ var todoapi = require('./routes/todoAPI.js');
 var news = require('./routes/news.js');
 var article = require('./routes/article.js');
 var message = require('./routes/message.js');
+var user = require('./routes/user.js');
+
 //var expressLayouts = require('express-ejs-layouts');
 var app = express();
 
@@ -52,14 +54,19 @@ app.get('/news',news.index);
 app.post('/news',news.insert);
 
 app.get('/news/:id',news.read);
+app.post('/news/:id/comments',news.addComment);
+app.get('/news/:id/comments/:idcomment',news.delete_comment);
 
 app.get('/article',article.index);
 
 app.post('/message',message.add);
 
+app.get('/user/:id',user.getUser);
+
 app.get('/api/todo',todoapi.list);
 app.get('/api/news',todoapi.listNews);
 app.get('/api/messages',todoapi.listMessages);
+app.get('/api/users',todoapi.listUser);
 
 
 http.createServer(app).listen(app.get('port'), function(){

@@ -13,7 +13,7 @@
     </article>
     <br />
     <div class="">
-        <form class="" method="post" action="/news/<%= newsId._id %>">
+        <form class="" method="post" action="/news/<%= newsId._id %>/comments">
         <label for="pseudo">Pseudo : </label>
         <input type="text" name="pseudo" /><br /><br />
         <textarea name="comment" id="" cols="100" rows="10"></textarea>
@@ -27,12 +27,16 @@
         <h2>Commentaires</h2>
         <hr />
         <article class="comments">
-             
-            <%= newsId.comments.forEach(function(comment){ %>
-            <p><%= comment.pseudo %></p>
-            <p><%= comment.update_at %></p>
-            <p><%= comment.content %></p>  
-            <% }); %> 
+            <ul>
+            <% newsId.comments.forEach(function(comment){ %>
+            <li id="<%=comment.comment_id%>">
+                <p><%= comment.pseudo %></p>
+                <p><%= comment.update_at %></p>
+                <p><%= comment.content %></p>
+                <button type="button" >Aimer</button>
+                <button type="button" >Retirer</button>
+            </li>
+            <% }); %>   
             </ul>
         </article>
     </div>

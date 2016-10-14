@@ -9,8 +9,8 @@
       <li><a class="nav-item nav-link" data-toggle="modal" data-target="#contactModal" href="#">Contact</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="gluphicon glyphicon-user"></span>S'inscrire</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Connecter</a></li>
+        <li><a data-toggle="modal" data-target="#subcribeModal" href="#"><span class="gluphicon glyphicon-user" ></span>S'inscrire</a></li>
+        <li><a data-toggle="modal" data-target="#connectModal"href="#"><span class="glyphicon glyphicon-log-in"></span> Connecter</a></li>
     </ul>
 </nav>
 
@@ -33,6 +33,7 @@
     </div>
 </div>
 
+
 <div class="modal" id="messageModal" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -53,6 +54,60 @@
             <div class="modal-footer">
                 <button type="submit" class="btn btn-default">Envoyer un message</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="subcribeModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4>S'inscrire</h4>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="/user/subcribe" >
+                    <div class="form-group">
+                        <label for="username">Username : </label>
+                        <input type="text" class="form-control" name="username" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password : </label>
+                        <input type="password" class="form-control" name="password" />
+                    </div>
+                    <button type="button" class="btn btn-primary">S'inscrire</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <p>Inscription</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="connectModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4>Se Connecter</h4>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="/user/subcribe" >
+                    <div class="form-group">
+                        <label for="username">Username : </label>
+                        <input type="text" class="form-control" name="username" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password : </label>
+                        <input type="password" class="form-control" name="password" />
+                    </div>
+                    <button type="button" class="btn btn-primary">Se connecter</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <p>Connexion</p>
             </div>
         </div>
     </div>
