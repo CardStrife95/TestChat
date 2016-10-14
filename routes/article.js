@@ -21,6 +21,7 @@ exports.save = function(req,res){
         title : req.body.title,
         content:req.body.content
     }).save(function(err,articles,count){
-        
+        if(err) throw err;
+        res.redirect('/article');
     });
 };
