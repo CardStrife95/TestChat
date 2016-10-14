@@ -15,3 +15,12 @@ exports.index = function(req,res){
         })
     });  
 };
+
+exports.save = function(req,res){
+    new Article({
+        title : req.body.title,
+        content:req.body.content
+    }).save(function(err,articles,count){
+        
+    });
+};
