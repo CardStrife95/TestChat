@@ -19,7 +19,7 @@ var Comment = new Schema({
     comment_id : Schema.Types.ObjectId,
     pseudo : String,
     update_at: { type:Date , default:Date.now },
-    comment : String
+    content : String
 });
 
 var News = new Schema({

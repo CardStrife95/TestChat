@@ -3,7 +3,7 @@
     <h1><%= title %></h1>
     <% news.forEach(function(newsId){%>
     <% if (newsId._id == current){%>
-    <article>
+    <article class="news">
         <h1><%= newsId.title %></h1>
         <h3>Mise en ligne le <%= newsId.update_at %></h3>
         <br />
@@ -11,10 +11,13 @@
             <%= newsId.content %>
         </p>
     </article>
-    
+    <br />
     <div class="">
         <form class="" method="post" action="/news/<%= newsId._id %>">
+        <label for="pseudo">Pseudo : </label>
+        <input type="text" name="pseudo" /><br /><br />
         <textarea name="comment" id="" cols="100" rows="10"></textarea>
+        <br />
         <button type="submit" class="btn btn-default">Commenter</button>
         </form>
     </div>
@@ -23,8 +26,14 @@
     <div class="">
         <h2>Commentaires</h2>
         <hr />
-        <article>
-            <%= newsId.comments %>
+        <article class="comments">
+             
+            <%= newsId.comments.forEach(function(comment){ %>
+            <p><%= comment.pseudo %></p>
+            <p><%= comment.update_at %></p>
+            <p><%= comment.content %></p>  
+            <% }); %> 
+            </ul>
         </article>
     </div>
     <% }%>
