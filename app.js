@@ -11,6 +11,10 @@ var express = require('express.io')
 
 
 var engine = require('ejs-locals');
+var passport = require('passport');
+var expressSession = require('express-session');
+
+//Les routes
 var todoapi = require('./routes/todoAPI.js');
 var news = require('./routes/news.js');
 var article = require('./routes/article.js');
@@ -36,6 +40,9 @@ app.use(express.methodOverride());
 //app.use(expressLayouts);
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(expressSession({secret:'mysecretkey'}));
+app.use(passport.initialize());
+app.use(passport.session());
 app.http().io();
 
 // development only
